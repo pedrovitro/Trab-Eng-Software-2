@@ -35,12 +35,12 @@ public class UsuarioController {
 		return UsuarioDto.converter(usuarios);
 	}
 	
-//	@PostMapping
-//	public ResponseEntity<UsuarioDto> cadastrar(@RequestBody UsuarioForm form, UriComponentsBuilder uriBuilder) {
-//		Usuario usuario = form.converter(usuarioRepository);
-//		usuarioRepository.save(usuario);
-//		
-//		URI uri = uriBuilder.path("/usuarios/{id}").buildAndExpand(usuario.getId()).toUri();
-//		return ResponseEntity.created(uri).body(new UsuarioDto(usuario));
-//	}
+	@PostMapping
+	public ResponseEntity<UsuarioDto> cadastrar(@RequestBody UsuarioForm form, UriComponentsBuilder uriBuilder) {
+		Usuario usuario = form.converter(usuarioRepository);
+		usuarioRepository.save(usuario);
+		
+		URI uri = uriBuilder.path("/usuarios/{id}").buildAndExpand(usuario.getId()).toUri();
+		return ResponseEntity.created(uri).body(new UsuarioDto(usuario));
+	}
 }
